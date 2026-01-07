@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para Fernanda 💗</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ffe4ec, #ffffff);
+    overflow: hidden;
+}
+
+/* Fundo animado */
+.floating {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+.float {
+    position: absolute;
+    animation: subir linear infinite;
+    opacity: 0.7;
+    font-size: 24px;
+}
+
+@keyframes subir {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 750px;
+    box-shadow: 0 20px 40px rgba(255,105,180,0.4);
+}
+
+h1 {
+    color: #ff4f9a;
+    font-size: 36px;
+}
+
+p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.9;
+}
+
+.signature {
+    margin-top: 25px;
+    font-weight: bold;
+    color: #ff1493;
+}
+
+.countdown {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #ff1493;
+    font-weight: bold;
+}
+
+/* Tela final */
+.final {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, #ffb6c1, #fff);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Música -->
+<iframe id="music" width="0" height="0"
+src="https://www.youtube.com/embed/nJw2_S2fPj8?loop=1&playlist=nJw2_S2fPj8"
+allow="autoplay">
+</iframe>
+
+<div class="floating" id="floating"></div>
+
+<div class="container">
+<div class="card">
+<h1>Para Fernanda 💗</h1>
+
+<p>Mesmo à distância, você entrou na minha vida de um jeito que ninguém jamais entrou.</p>
+
+<p>Você mudou meus dias, meus pensamentos e meus sentimentos sem nem perceber.</p>
+
+<p>Essa contagem não é só tempo… é saudade, expectativa e amor crescendo a cada segundo.</p>
+
+<p>Se assim você já mudou tudo, imagina quando eu finalmente chegar até você.</p>
+
+<div class="signature">
+Com todo meu amor,<br>
+Fabrício ❤️
+</div>
+
+<div class="countdown" id="countdown"></div>
+</div>
+</div>
+
+<div class="final" id="final">
+<h1>Eu cheguei, Fernanda ❤️</h1>
+<p>A distância acabou.</p>
+</div>
+
+<script>
+/* Contagem regressiva */
+const alvo = new Date("January 24, 2026 14:00:00").getTime();
+const cd = document.getElementById("countdown");
+const final = document.getElementById("final");
+
+setInterval(() => {
+    const agora = new Date().getTime();
+    const diff = alvo - agora;
+
+    if (diff <= 0) {
+        final.style.display = "flex";
+        cd.style.display = "none";
+        return;
+    }
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    cd.innerHTML = `Faltam ${d} dias ${h}h ${m}m ${s}s 💕`;
+}, 1000);
+
+/* Fundo animado */
+const fundo = document.getElementById("floating");
+
+function criarElemento(texto) {
+    const el = document.createElement("div");
+    el.className = "float";
+    el.innerText = texto;
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = 5 + Math.random() * 6 + "s";
+    el.style.fontSize = 18 + Math.random() * 18 + "px";
+    fundo.appendChild(el);
+
+    setTimeout(() => el.remove(), 11000);
+}
+
+setInterval(() => {
+    criarElemento("💗");
+    criarElemento("Fernanda");
+}, 600);
+
+/* Ativar música no primeiro toque */
+document.body.addEventListener("click", () => {
+    document.getElementById("music").src += "&autoplay=1";
+}, { once: true });
+</script>
+
+</body>
+</html>
