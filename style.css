@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #fdecef, #fff5f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+/* TELA INICIAL */
+.intro {
+  text-align: center;
+  animation: fadeIn 2s ease;
+}
+
+.intro h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #8b3a4a;
+  margin-bottom: 20px;
+}
+
+.intro button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #d4af37, #f7d774);
+  color: #5a2a33;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.intro button:hover {
+  transform: scale(1.05);
+}
+
+/* CONTAINER */
+.container {
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 2s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* FOTO */
+.photo img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* CARTA */
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  animation: openCard 1.5s ease forwards;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #5a2a33;
+  text-align: justify;
+  animation: textFade 2s ease;
+}
+
+.signature {
+  display: block;
+  margin-top: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #8b3a4a;
+}
+
+/* PERGUNTA */
+.question {
+  margin-top: 25px;
+}
+
+.question p {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.question button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #d4af37, #f7d774);
+  color: #5a2a33;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.question button:hover {
+  transform: scale(1.05);
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes openCard {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes textFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
